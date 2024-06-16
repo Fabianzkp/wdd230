@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anana Agwu Ezikpe - WDD 230 - Web Frontend Development</title>
+    <meta name="description" content="WDD 230 - Web Frontend Development - course assignment portal">
+    <meta name="author" content="Anana Agwu Ezikpe">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/larger.css">
+
+</head>
+<body>
+    <div id="push">
+        <header>
+            <img src="images/fabianimage.jpg" alt="Anana Agwu profile" width="240" height="246">
+            <span>Anana A. Ezikpe</span>
+        </header>
+
+    <!-- I used this short cut "nav>ul>li*4>a" -->
+        <div id="mark">
+            <nav>
+                <ul>
+                    <li class ="active"><a href="index.html">Home</a></li>
+                    <li><a href="#">Chamber</a></li>
+                    <li><a href="#">Site Plan</a></li>
+                    <li><a href="#">Form</a></li>
+                </ul>
+            </nav>
+        </div>
+        <main>
+            <h1>WDD 230: Web Frontend Development</h1>
+            <div id = "container">
+                <section class="card">
+                    <h2>Learning Activities</h2>
+                    <ul>
+                        <li><a href="#">Week 01: Layout | Media Query | JS Pen </a></li>
+                        <li><a href="#">Week 02:</a></li>
+                        <li><a href="#">Week 03:</a></li>
+                        <li><a href="#">Week 04:</a></li>
+                    </ul>
+                </section>
+
+                <section class="card" id="informationCard">
+                    <h2>Information</h2>
+                    <ul>
+                        <li><strong>Weather:</strong> <span id="weatherInfo">Loading...</span></li>
+                        <li><strong>Visits:</strong> <span id="visitCount">Loading...</span></li>
+                    </ul>
+                </section>
+            </div>
+        </main>
+        <footer>
+        <!-- First paragraph with copyright and author details -->
+        <p id= "copyright">Placeholder for copyright information</p>
+
+        <!-- Second paragraph with last modified information -->
+        <p id="lastModified">Placeholder for last modified information</p>
+        <p id="countryInfo">Fetching country info...</p>
+        </footer>
+        <script src="scripts/getDates.js"></script>
+    </div>
+</body>
+</html>
