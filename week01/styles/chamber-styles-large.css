@@ -1,0 +1,70 @@
+@media (min-width: 768px) {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-size: 1.5rem;
+    }
+    
+    header {
+        display: flex;
+        flex-direction: row; 
+        align-items: center; 
+        padding: 1rem;
+        justify-content: flex-start; 
+    }
+    
+    .logo {
+        max-width: 15rem;
+        height: auto;
+        margin-right: 1rem; 
+        flex-shrink: 0; 
+        padding-left: 2rem;
+    }
+
+    h1 {
+        font-family: 'Oswald', sans-serif;
+        color: #fff;
+        flex-grow: 1; /* Allow the h1 to take up the remaining space */
+        font-size: 5rem;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: space-around; /* Space items evenly */
+        list-style: none;
+    }
+    
+    nav ul li {
+        font-weight: bold;
+        font-size: 2.5rem;
+    }
+    
+    main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        margin: 2.5rem;
+    }
+
+    section {
+        font-size: 2rem;
+        padding: 2rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    nav ul li a:hover {
+        border-bottom: 2px solid rgba(19, 121, 19, 0.9);
+    }
+
+
+    footer {
+        font-size: 2.5rem;
+    }
+}
