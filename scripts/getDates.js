@@ -73,3 +73,25 @@ document.addEventListener("DOMContentLoaded", function() {
     updateVisitCount();
 });
 
+const hamburgerElement = document.querySelector('#myButton');
+const navElement = document.querySelector('.menulinks');
+
+hamburgerElement.addEventListener('click', function(){
+    navElement.classList.toggle('open');
+    hamburgerElement.classList.toggle('open');
+})
+
+const modeButton = document.querySelector("#mode");
+const main = document.querySelector(".card");
+
+modeButton.addEventListener("click", () => {
+	if (modeButton.textContent.includes("🕶️")) {
+		main.style.background = "#000";
+		main.style.color = "#fff";
+		modeButton.textContent = "🔆";
+	} else {
+		main.style.background = "#eee";
+		main.style.color = "#000";
+		modeButton.textContent = "🕶️";
+	}
+});

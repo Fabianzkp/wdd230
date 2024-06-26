@@ -60,4 +60,17 @@
     .card {
         box-shadow: 5px 16px 16px rgba(0, 0, 0, 0.4);
     }
+    
+    #myButton {
+        display: none;
+    }
+
+    ul.menulinks, ul.open {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    ul.menulinks a:hover {
+        background-color: rgba(165, 42, 42, 0.3);
+    }
 }

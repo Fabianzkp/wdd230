@@ -47,6 +47,7 @@ nav ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Added transition */
 }
 
 nav ul li {
@@ -111,6 +112,63 @@ footer {
     color: #fff;
     background-color: #2054a1;
     margin-bottom: 2rem;
+}
+
+#myButton::before{
+    content: "≡";
+}
+
+#myButton {
+    font-size: 2rem;
+    background: black;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    padding: 1rem 2vw;
+
+    /* this is to change the hamburger menu position on the screen */
+    /* position: absolute;
+    top: 350px;
+    right: 2vw; */
+}
+
+ul.menulinks li a {
+    display: block;
+    padding: 0.75rem 2vw;
+    color: #fff;
+    text-decoration: none;
+}
+
+ul.menulinks {
+    display: none;
+    list-style-type: none;
+     /* Add transition properties */
+     max-height: 2rem; /* Added max-height */
+     opacity: 0; /* Added opacity */
+     overflow: hidden; /* Added overflow hidden */
+    
+}
+
+ul.open{
+    display: block;
+     /* Modify properties for open state */
+     max-height: 500px; /* Set a maximum height when open */
+     opacity: 1; /* Set opacity to 1 when open */
+}
+
+#myButton.open::before{
+    content: "֍";
+}
+
+#mode {
+	position: absolute;
+	top: 25rem;
+	right: 0.5rem;
+	font-size: 3rem;
+	cursor: pointer;
+	font-size: 1.5rem;
 }
 
 footer p {
