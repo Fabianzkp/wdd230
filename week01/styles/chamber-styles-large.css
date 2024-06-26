@@ -17,7 +17,7 @@
         padding: 1rem;
         justify-content: flex-start; 
     }
-    
+
     .logo {
         max-width: 15rem;
         height: auto;
@@ -64,6 +64,7 @@
         border-bottom: 2px solid rgba(19, 121, 19, 0.9);
     }
 
+    
 
     footer {
         font-size: 1.5rem;
