@@ -87,7 +87,7 @@ const main = document.querySelector(".card");
 modeButton.addEventListener("click", () => {
 	if (modeButton.textContent.includes("🕶️")) {
 		main.style.background = "#000";
-		main.style.color = "#fff";
+		main.style.color = "#000";
 		modeButton.textContent = "🔆";
 	} else {
 		main.style.background = "#eee";

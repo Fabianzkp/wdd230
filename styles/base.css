@@ -9,6 +9,7 @@ body {
     margin: 0;
     padding: 0;
 }
+
 #push {
     align-content: center;
     margin: auto;
@@ -146,7 +147,7 @@ ul.menulinks {
     list-style-type: none;
      /* Add transition properties */
      max-height: 2rem; /* Added max-height */
-     opacity: 0; /* Added opacity */
+     opacity: 1; /* Added opacity */
      overflow: hidden; /* Added overflow hidden */
     
 }
