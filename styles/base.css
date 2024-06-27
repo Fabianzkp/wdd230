@@ -160,7 +160,7 @@ ul.open{
 }
 
 #myButton.open::before{
-    content: "֍";
+    content: "Ẍ";
 }
 
 #mode {
