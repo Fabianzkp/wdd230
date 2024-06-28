@@ -105,3 +105,74 @@ footer {
     padding: 0.5rem;
 }
 
+#myButton::before{
+    content: "≡";
+    font-weight: bold;
+}
+
+#myButton {
+    font-size: 2rem;
+    background: rgba(229, 215, 136, 0.9);
+    border: none;
+    color: rgba(19, 121, 19, 0.9);
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    padding: 1rem 2vw;
+}
+
+ul.menulinks {
+    display: none;
+    list-style-type: none;
+     /* Add transition properties */
+     max-height: 2rem; /* Added max-height */
+     opacity: 1; /* Added opacity */
+     overflow: hidden; /* Added overflow hidden */
+    
+}
+
+ul.open{
+    display: block;
+     /* Modify properties for open state */
+     max-height: 500px; /* Set a maximum height when open */
+     opacity: 1; /* Set opacity to 1 when open */
+}
+
+#myButton.open::before{
+    content: "Ẍ";
+    font-weight: bold;
+}
+
+.hero {
+    padding: 1rem;
+    
+}
+
+.hero img {
+    width: 100%;
+}
+/* Button styling */
+.cta {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: rgba(19, 121, 19, 0.9);
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-top: 20px; /* Adjust as needed */
+    transition: background-color 0.3s ease;
+}
+
+.cta:hover {
+    background-color: rgba(19, 121, 19, 1); /* Darker shade on hover */
+}
+
+#spot {
+    margin-bottom: 2rem;
+}
+
+#spotlight{
+    margin-bottom: 2rem;
+}

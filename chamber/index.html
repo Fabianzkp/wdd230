@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cross River Maize Chamber of Commerce</title>
+    <meta name="description" content="WDD 230 - Web Frontend Development - course assignment portal">
+    <meta name="author" content="Anana Agwu Ezikpe">
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400;600;800&family=Oswald:wght@200;400;600&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/large.css">
+    <meta property="og:title" content="Cross River Maize Chamber of Commerce">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/og-image.jpg">
+    <meta property="og:url" content="https://your-website-url.com">
+</head>
+<body>
+    <header>
+        <img src="images/maize-chamber.jpg" alt="Cross River Maize Chamber of Commerce Logo" class="logo">
+        <h1>Cross River Maize Chamber of Commerce</h1>
+    </header>
+
+    <nav id="animateme">
+        <button id="myButton"></button>
+        <ul class="menulinks">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#">Discover</a></li>
+            <li><a href="#">Directory</a></li>
+            <li><a href="#">Join</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <img src="images/countryside-people.jpg" alt="Hero Image">
+        <a href="#" class="cta">Join the Chamber</a>
+    </div>
+    <main>
+        <section class="current-events">
+            <h2>Current Events</h2>
+            <p>We are excited to announce the upcoming Maize Harvest Festival, scheduled for July 15th at Cross River's Agricultural Hub. Organized by the Cross River Maize Chamber of Commerce, this festival aims to celebrate the region's rich agricultural heritage and promote sustainable farming practices. The event will feature farmer showcases, interactive workshops on modern maize cultivation techniques, and networking opportunities for local businesses. Participants can look forward to engaging with industry experts, exploring innovative farming technologies, and enjoying a showcase of local maize products. Join us in celebrating Cross River's vibrant maize farming community and advancing agricultural excellence!</p>
+        </section>
+
+        <section class="weather">
+            <h2>Weather</h2>
+            <p id="weatherInfo">Loading weather data...</p>
+        </section>
+
+        <section class="spotlights">
+            <h2>Company Spotlights</h2>
+            <div id="spot">
+                <h3>AgriPro Farms</h3>
+                <p>AgriPro Farms specializes in organic maize cultivation, supplying premium maize products across Cross River State. Known for sustainable farming practices and community involvement.</p>
+                <a href="#">Learn More</a>
+            </div>
+            <div id="spotlight">
+                <h3>Cross River Grain Processors</h3>
+                <p>Cross River Grain Processors is a leading maize processing company, offering state-of-the-art milling and packaging services. They support local farmers by providing market access and fair trade opportunities.</p>
+                <a href="#">Explore Products</a>
+            </div>
+            <div id="glow">
+                <h3>Maize Innovation Institute</h3>
+                <p>The Maize Innovation Institute conducts research and development in maize genetics and crop improvement techniques. They collaborate with farmers to enhance yield, resilience, and sustainability.</p>
+                <a href="#">Research Initiatives</a>
+            </div>
+        </section>
+        
+    </main>
+    <footer>
+        <p id="lastModified"></p>
+        <p>&copy; <span id="copyright"></span></p>
+        <p>WDD 230 Project</p>
+        <p id="countryInfo">Fetching country info...</p>
+    </footer>
+    <script src="scripts/scripts.js"></script>
+</body>
+</html>

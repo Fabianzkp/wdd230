@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Function to update copyright year
     const updateCopyright = () => {
         const currentYear = new Date().getFullYear();
-        document.querySelector("#copyright").innerHTML = `© ${currentYear} Anana Agwu Ezikpe`;
+        document.querySelector("#copyright").innerHTML = `${currentYear} Anana Agwu Ezikpe`;
     };
 
     // Function to update last modified date
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         localStorage.setItem('visitCount', visits);
-        document.getElementById('visitCount').textContent = `Visits: ${visits}`;
+        document.getElementById('visitCount').textContent = visits;
     };
 
     // Call all update functions when DOM content is loaded
