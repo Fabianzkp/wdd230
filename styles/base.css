@@ -172,7 +172,55 @@ ul.open{
 	font-size: 1.5rem;
 }
 
+.hero {
+    position: relative;
+}
+
+.message {
+    position: relative;
+}
+.hero img{
+    width: 100%;
+    height: auto;
+    display: block;
+    animation: fade 15s;
+}
+
+.heromessage {
+    position: absolute;
+    top: 0px;
+	left: 0px;
+	background-color: rgba(165, 42, 42, 0.2);
+    color: #fff;
+    padding: 0.5rem;
+}   
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 footer p {
     margin: 0.5rem 0;
     font-size: 1.5rem;
+}
+
+#map {
+    position: relative; 
+    width: 100%;
+    padding-bottom: 56.25%; 
+    height: 0; 
+    overflow: hidden; 
+}
+
+#map iframe {
+    position: absolute; /* Absolute position to fit the container */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

@@ -73,6 +73,13 @@
     }
 
     ul.menulinks a:hover {
-        background-color: rgba(165, 42, 42, 0.3);
+        background-color: rgba(165, 42, 42, 0.9);
     } 
+
+    .heromessage {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        font-size: 1.5rem;
+    }
 }
