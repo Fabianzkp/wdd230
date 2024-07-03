@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cross River Maize Chamber of Commerce</title>
+    <meta name="description" content="WDD 230 - Web Frontend Development - course assignment portal">
+    <meta name="author" content="Anana Agwu Ezikpe">
+    <meta property="og:title" content="Cross River Maize Chamber of Commerce">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://fabianzkp.github.io/wdd230/images/calabar.jpeg">
+    <meta property="og:url" content="https://fabianzkp.github.io/wdd230/index.html">
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400;600;800&family=Oswald:wght@200;400;600&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/large.css"> 
+</head>
+<body>
+    <header>
+        <img src="images/maize-chamber.webp" alt="Cross River Maize Chamber of Commerce Logo" class="logo">
+        <h1>Cross River Maize Chamber of Commerce</h1>
+    </header>
+
+    <nav id="animateme">
+        <button id="myButton"></button>
+        <ul class="menulinks">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#">Discover</a></li>
+            <li><a href="#">Directory</a></li>
+            <li><a href="#">Join</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <img src="images/countryside-people.webp" alt="Hero Image">
+        <a href="#" class="cta">Join the Chamber</a>
+    </div>
+
+    <main class="grid-container">
+        <aside class="sidebar">
+            <section class="demographics">
+                <h2>Demographics</h2>
+                <p>Cross River State has a population of over 3.7 million people. Major towns include Calabar, Ugep, and Ikom. The economy is largely based on agriculture, with maize being a significant crop.</p>
+            </section>
+            <section class="statistics">
+                <h2>Statistical Data</h2>
+                <p>Annual Maize Production: 500,000 tonnes</p>
+                <p>Number of Farmers: 100,000</p>
+                <p>Export Revenue: $50 million</p>
+            </section>
+            <section class="events">
+                <h2>Upcoming Events</h2>
+                <ul>
+                    <li>Maize Harvest Festival - July 15th</li>
+                    <li>Agricultural Fair - August 20th</li>
+                    <li>Farming Techniques Seminar - September 10th</li>
+                </ul>
+            </section>
+            <section class="attractions">
+                <h2>Local Attractions</h2>
+                <ul>
+                    <li>Obudu Mountain Resort</li>
+                    <li>Calabar Cultural Carnival</li>
+                    <li>Calabar Museum</li>
+                </ul>
+            </section>
+            <section class="calendar">
+                <h2>Calendar</h2>
+                <p>July 2024</p>
+                <ul>
+                    <li>15th: Maize Harvest Festival</li>
+                    <li>20th: Agricultural Fair</li>
+                </ul>
+            </section>
+            <section class="visit-message">
+                <h2>Welcome Back!</h2>
+                <p id="visitMessage"></p>
+            </section>
+        </aside>
+
+        <section class="main-content">
+            <h2>Local Photos of Interest</h2>
+            <div class="gallery">
+                <figure>
+                    <img src="images/calabar.webp" alt="Photo of Calabar Roundabout" loading="lazy" width="750" height="400">
+                    <figcaption>Calabar Roundabout</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/agbokim-water-fall.webp" alt="Photo of Agbokim Waterfall" loading="lazy" width="750" height="466">
+                    <figcaption>Agbokim Waterfall</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/cable-car.webp" alt="Photo of a Cable Car" loading="lazy" width="640" height="427">
+                    <figcaption>Obudu Cable Car</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/calabar-aerial-view.webp" alt="Aerial View of Calabar" loading="lazy" width="750" height="556">
+                    <figcaption>Aerial View of Calabar</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/residency_museum_calabar.webp" alt="Photo of Calabar Museum" loading="lazy" width="750" height="500">
+                    <figcaption>Calabar Museum</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/cultural-day.webp" alt="Photo of a Woman Dancing on Calabar Cultural Day" loading="lazy" width="750" height="500">
+                    <figcaption>Calabar Cultural Carnival</figcaption>
+                </figure>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Mail: fabianzkp@gmail.com</p>
+        <p id="lastModified"></p>
+        <p>&copy; <span id="copyright"></span></p>
+        <p>WDD 230 Project</p>
+        <p id="countryInfo">Fetching country info...</p>
+    </footer>
+
+    <script src="scripts/scripts.js"></script>
+</body>
+</html>

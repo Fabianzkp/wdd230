@@ -176,3 +176,90 @@ ul.open{
 #spotlight{
     margin-bottom: 2rem;
 }
+
+
+/* Sidebar Styles */
+/* Base Grid Layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+    padding: 1rem;
+}
+
+.sidebar {
+    background-color: #fff;
+    padding: 0.5rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar section {
+    margin-bottom: 1rem;
+}
+
+.sidebar h2 {
+    font-family: 'Kanit', sans-serif;
+    color: rgba(19, 121, 19, 0.9);
+    margin-bottom: 0.5rem;
+}
+
+.sidebar p, .sidebar ul {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 0.5rem;
+}
+
+.main-content {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.main-content h2 {
+    font-family: 'Oswald', sans-serif;
+    color: rgba(19, 121, 19, 0.9);
+    margin-bottom: 1rem;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    animation: fade 5s;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+figure {
+    position: relative;
+    }
+
+figcaption {
+    text-align: left;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    position: absolute;
+    bottom: 1.5rem;
+    width: 100%;
+    font-size: 1rem;
+}
