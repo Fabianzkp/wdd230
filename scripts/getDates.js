@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Function to update copyright year
     const updateCopyright = () => {
         const currentYear = new Date().getFullYear();
-        document.querySelector("#copyright").innerHTML = `${currentYear} Anana Agwu Ezikpe`;
+        document.querySelector("#copyright").innerHTML = `© ${currentYear} Anana Agwu Ezikpe`;
     };
 
     // Function to update last modified date
