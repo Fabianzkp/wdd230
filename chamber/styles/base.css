@@ -40,8 +40,9 @@ nav {
 }
 
 nav ul {
-    font-size: 1.5rem; 
+    font-size: 2rem; 
     list-style-type: none;
+    font-weight: bold;
 }
 
 nav ul li a {

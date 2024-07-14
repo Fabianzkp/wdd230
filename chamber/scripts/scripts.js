@@ -57,6 +57,15 @@ const updateWeather = () => {
         });
 };
 
+    // Toggle navigation menu for mobile view
+const hamburgerElement = document.querySelector('#myButton');
+const navElement = document.querySelector('.menulinks');
+
+hamburgerElement.addEventListener('click', function(){
+    navElement.classList.toggle('open');
+    hamburgerElement.classList.toggle('open');
+});
+
 
     // Function to set timestamp value
     const setTimestamp = () => {
