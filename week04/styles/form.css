@@ -1,0 +1,178 @@
+/* Define CSS variables in :root */
+:root {
+    --font-family: 'Roboto', sans-serif;
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+    --primary-color: rgba(32, 84, 161, 0.9);
+    --secondary-color:  rgba(165, 42, 42, 1);
+    --text-color: rgba(20, 19, 19, 0.8);
+    --border-radius: 4px;
+    --background: rgb(241, 236, 236, 0.3);
+    --background-color: rgba(255, 255, 255, 0.9);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+}
+
+#push {
+    align-content: center;
+    margin: auto;
+    max-width: 80%; 
+}
+
+header { 
+    margin-top: 2rem; 
+    display: grid;
+    grid-template-rows: auto auto; 
+    padding: 2px;
+    background-color: #2054a1;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    justify-items: center; 
+    align-items: center; 
+}
+header span {
+    padding-left: 2rem;
+    padding-bottom: 1rem;
+}
+
+header img {
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 2rem;
+    padding-right: 2rem;
+}
+
+nav ul {
+    margin-top: -3rem;
+    background: black;
+    text-align: center;
+    font-size: 2rem;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Added transition */
+}
+
+nav ul li {
+    margin: 0;
+    padding: 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.active a {
+    background-color: rgba(165, 42, 42, 1);
+}
+
+nav a:hover{
+    background-color: rgba(165, 42, 42, 0.3);
+}
+
+main h1 {
+    padding: 2rem 0;
+}
+
+/* .....Form CSS......... */
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.formapp {
+    padding: 0;
+    background-color: var(--background-color);
+}
+
+legend {
+    padding: .5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.formapp label {
+    display: block;
+    padding: .5rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.formapp input[type="text"],
+.formapp input[type="password"],
+.formapp input[type="email"],
+.formapp input[type="range"],
+.formapp input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 1em;
+    background: var(--background);
+}
+
+.formapp input[type="range"] {
+    width: calc(100% - 30px);
+    margin: 0 .5rem ;
+}
+
+.formapp output {
+    display: inline-block;
+    margin-bottom: 1rem;
+    margin-left: .5rem;
+    font-size: 0.9em;
+    padding: 5px 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+}
+
+.formapp input[type="submit"] {
+    margin-top: 2rem;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: var(--border-radius);
+}
+
+.formapp input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+.formapp input:required {
+    border-right: solid 8px var(--secondary-color)
+}
+
+.formapp input:required:valid {
+    border-right: solid 8px var(--primary-color)
+}
+
+/* Footer styles */
+footer {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    text-align: center;
+    font-size: 0.9em;
+    color: var(--text-color);
+}
+
+.footer-message {
+    margin-top: 10px;
+}

@@ -1,0 +1,72 @@
+@media screen and (min-width: 840px) {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    #push {
+        align-content: center;
+        margin: auto;
+        max-width: 80%;
+    }
+
+    header {  
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        background-color: #2054a1;
+        font-size: 3.5rem;
+        font-weight: bold;
+        color: white;
+    }
+
+    header img {
+        padding-left: 1rem;
+        padding-bottom: 3rem;
+        margin-right: 1rem;
+        margin-left: 8rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: space-around;
+        background: black;
+        font-size: 2rem;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        flex: 1 1 100%;
+    }
+
+    /* ............Style for form........... */
+
+    main {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: var(--border-radius);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1{
+        margin-left: 5rem;
+    }
+    .formapp {
+        max-width: 600px;
+        margin: 20px auto;
+    }
+
+}
