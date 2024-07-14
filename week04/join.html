@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Us - Cross River Maize Chamber of Commerce</title>
+    <meta name="description" content="WDD 230 - Web Frontend Development - course assignment portal">
+    <meta name="author" content="Anana Agwu Ezikpe">
+    <meta property="og:title" content="Cross River Maize Chamber of Commerce">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://fabianzkp.github.io/wdd230/images/calabar.jpeg">
+    <meta property="og:url" content="https://fabianzkp.github.io/wdd230/index.html">
+    <link rel="icon" href="../chamber/images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400;600;800&family=Oswald:wght@200;400;600&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../chamber/styles/normalize.css">
+    <link rel="stylesheet" href="../chamber/styles/base.css">
+    <link rel="stylesheet" href="../chamber/styles/large.css"> 
+</head>
+<body>
+    <header>
+        <img src="../chamber/images/maize-chamber.webp" alt="Cross River Maize Chamber of Commerce Logo" class="logo">
+        <h1>Cross River Maize Chamber of Commerce</h1>
+    </header>
+
+    <nav id="animateme">
+        <button id="myButton"></button>
+        <ul class="menulinks">
+            <li><a href="../chamber/index.html">Home</a></li>
+            <li><a href="../chamber/discover.html">Discover</a></li>
+            <li><a href="#">Directory</a></li>
+            <li class="active"><a href="../week04/join.html">Join</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-container">
+        <section class="section-one">
+            <h2>Join Us</h2>
+            <form method="get" action="thankyou.html" class="form">
+                <fieldset>
+                    <legend>Member Information</legend>
+                    <label>First Name* <input type="text" id="firstName" name="firstName" required></label>
+                    <label>Last Name* <input type="text" id="lastName" name="lastName" required></label>
+                    <label>Title/Position <input type="text" id="title" name="title" pattern="[A-Za-z\- ]{7,}" required></label>
+                    <label>Email* <input type="email" id="email" name="email" placeholder="example@example.com" required></label>
+                    <label>Mobile Phone* <input type="tel" id="phone" name="phone" required></label>
+                    <label>Business/Organization Name* <input type="text" id="organization" required></label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Membership</legend> 
+                    <div>Membership Level</div> 
+                    <label><input type="radio" name="np" value="yes">NP Membership (No Fee)</label> 
+                    <label><input type="radio" name="np" value="yes"> Bronze Membership</label> 
+                    <label><input type="radio" name="np" value="yes"> Silver Membership</label> 
+                    <label><input type="radio" name="np" value="yes"> Gold Membership</label> 
+                    <label>Organization's Description: <textarea id="description" name="description"></textarea></label>
+                </fieldset>
+
+                <input type="hidden" id="timestamp" name="timestamp" value="">
+                <input type="submit" value="Join Us">
+            </form>
+        </section>
+        
+        <section class="section-two">
+            <h2>Membership Benefits</h2>
+            <aside class="benefits-section">
+                <ul>
+                    <li><strong>NP Membership:</strong> No fee, access to events</li>
+                    <li><strong>Bronze Membership:</strong> Basic benefits including training</li>
+                    <li><strong>Silver Membership:</strong> Includes advertising opportunities</li>
+                    <li><strong>Gold Membership:</strong> All benefits plus spotlight positions</li>
+                </ul>
+            </aside>
+        </section>
+    </main>
+
+    <footer>
+        <p>Mail: fabianzkp@gmail.com</p>
+        <p id="lastModified"></p>
+        <p>&copy; <span id="copyright"></span></p>
+        <p>WDD 230 Project</p>
+        <p id="countryInfo">Fetching country info...</p>
+    </footer>
+    <script src="../chamber/scripts/scripts.js"></script>
+</body>
+</html>

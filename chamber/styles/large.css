@@ -97,8 +97,16 @@
         border-radius: 1rem;
     }
 
+    
     figcaption {
         text-align: center;
         background-color: rgba(0, 0, 0, 0.4);
     }
-}
+
+    /* .........lFORM STYLE......... */
+
+    .main-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}    

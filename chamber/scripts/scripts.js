@@ -31,15 +31,39 @@ document.addEventListener("DOMContentLoaded", function() {
             });
     };
 
-    // Function to update weather information
-    const updateWeather = () => {
-        const weatherInfo = document.getElementById("weatherInfo");
+   // Function to update weather information
+const updateWeather = () => {
+    const weatherInfo = document.getElementById("weatherInfo");
 
-        // Placeholder weather information
-        const temperature = 25; //To be replace with actual weather data
-        weatherInfo.textContent = `Temperature: ${temperature}°C`;
+    // Replace with your desired city and OpenWeatherMap API key
+    const city = 'Lagos';
+    const apiKey = 'e621d561bb4bb09a56dbe23915a8528e'; //OpenWeatherMap API key
+
+    // Fetch weather data from OpenWeatherMap API
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const temperature = data.main.temp;
+            weatherInfo.textContent = `Temperature: ${temperature}°C`;
+        })
+        .catch(error => {
+            console.error('Error fetching weather data:', error);
+            weatherInfo.textContent = 'Weather data: Unavailable';
+        });
+};
+
+
+    // Function to set timestamp value
+    const setTimestamp = () => {
+        const timestampInput = document.getElementById('timestamp');
+        const now = new Date();
+        timestampInput.value = now.toISOString(); // Set timestamp as ISO string
     };
-
 
     // Call all update functions when DOM content is loaded
     updateCopyright();
@@ -48,43 +72,57 @@ document.addEventListener("DOMContentLoaded", function() {
     updateWeather();
 });
 
-// Toggle navigation menu for mobile view
-const hamburgerElement = document.querySelector('#myButton');
-const navElement = document.querySelector('.menulinks');
+    // Function to handle form submission
+    const form = document.querySelector('.form'); // Assuming your form has a class "form"
+    if (form) {
+        form.addEventListener('submit', function(event) {
+            // Update timestamp just before form submission
+            setTimestamp();
+            
+            // Other form validation and submission logic
+            const emailInput = document.getElementById('email'); // Example: Replace with actual input field IDs
+            const isValidEmail = validateEmailFormat(emailInput);
 
-hamburgerElement.addEventListener('click', function(){
-    navElement.classList.toggle('open');
-    hamburgerElement.classList.toggle('open');
-});
+            if (!isValidEmail) {
+                event.preventDefault(); // Prevent form submission if email format is invalid
+                return;
+            }
 
+            // Redirect to success page
+            window.location.href = 'thankyou.html?status=success'; // Uncomment to enable redirection
+        });
 
-// for the chamber directory page 
-document.addEventListener('DOMContentLoaded', function() {
-    const visitMessage = document.getElementById('visitMessage');
-    
-    // Retrieve last visit date from localStorage
-    let lastVisit = localStorage.getItem('lastVisit');
-    if (lastVisit) {
-        lastVisit = new Date(lastVisit); // Convert stored date string to Date object
-        const now = new Date(); // Current date
-        
-        // Calculate the difference in milliseconds between now and last visit
-        const difference = now.getTime() - lastVisit.getTime();
-        const daysDifference = Math.floor(difference / (1000 * 60 * 60 * 24)); // Convert milliseconds to days
-        
-        // Displaying appropriate message based on the difference
-        if (daysDifference === 0) {
-            visitMessage.textContent = "Back so soon! Awesome!";
-        } else if (daysDifference === 1) {
-            visitMessage.textContent = "You last visited 1 day ago.";
-        } else {
-            visitMessage.textContent = `You last visited ${daysDifference} days ago.`;
-        }
-    } else {
-        // First visit
-        visitMessage.textContent = "Welcome! Let us know if you have any questions.";
+        // Optional: Update timestamp on form reset
+        form.addEventListener('reset', setTimestamp);
     }
-    
-    // Update localStorage with current visit date
-    localStorage.setItem('lastVisit', new Date().toString());
-});
+
+    // Function to validate email format (any email address)
+    const validateEmailFormat = (emailInput) => {
+        const emailValue = emailInput.value.trim();
+        const generalEmailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!generalEmailRegex.test(emailValue)) {
+            // Display error message for email format
+            displayErrorMessage('Please enter a valid email address.', emailInput);
+            clearEmail();
+            return false; // Prevent form submission
+        }
+
+        return true; // Allow form submission
+    };
+
+    // Function to display error message near an input field
+    const displayErrorMessage = (message, inputField) => {
+        const errorMessage = document.createElement('p');
+        errorMessage.textContent = message;
+        errorMessage.className = 'error-message';
+        errorMessage.style.color = 'red';
+        errorMessage.style.fontWeight = 'bold';
+        inputField.parentNode.insertBefore(errorMessage, inputField.nextSibling);
+    };
+
+    // Function to clear email field
+    const clearEmail = () => {
+        emailInput.value = '';
+        emailInput.focus();
+    };
