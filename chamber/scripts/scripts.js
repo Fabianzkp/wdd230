@@ -31,63 +31,57 @@ document.addEventListener("DOMContentLoaded", function() {
             });
     };
 
-   // Function to update weather information
-const updateWeather = () => {
-    const weatherInfo = document.getElementById("weatherInfo");
+    // Function to update weather information
+    const updateWeather = () => {
+        const weatherInfo = document.getElementById("weatherInfo");
 
-    // Replace with your desired city and OpenWeatherMap API key
-    const city = 'Lagos';
-    const apiKey = 'e621d561bb4bb09a56dbe23915a8528e'; //OpenWeatherMap API key
+        // Replace with your desired city and OpenWeatherMap API key
+        const city = 'Lagos';
+        const apiKey = 'e621d561bb4bb09a56dbe23915a8528e'; // OpenWeatherMap API key
 
-    // Fetch weather data from OpenWeatherMap API
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            const temperature = data.main.temp;
-            weatherInfo.textContent = `Temperature: ${temperature}°C`;
-        })
-        .catch(error => {
-            console.error('Error fetching weather data:', error);
-            weatherInfo.textContent = 'Weather data: Unavailable';
-        });
-};
+        // Fetch weather data from OpenWeatherMap API
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const temperature = data.main.temp;
+                weatherInfo.textContent = `Temperature: ${temperature}°C`;
+            })
+            .catch(error => {
+                console.error('Error fetching weather data:', error);
+                weatherInfo.textContent = 'Weather data: Unavailable';
+            });
+    };
 
-    // Toggle navigation menu for mobile view
-const hamburgerElement = document.querySelector('#myButton');
-const navElement = document.querySelector('.menulinks');
+     // Toggle navigation menu for mobile view
+    const hamburgerElement = document.querySelector('#myButton');
+    const navElement = document.querySelector('.menulinks');
 
-hamburgerElement.addEventListener('click', function(){
-    navElement.classList.toggle('open');
-    hamburgerElement.classList.toggle('open');
+    hamburgerElement.addEventListener('click', function(){
+        navElement.classList.toggle('open');
+        hamburgerElement.classList.toggle('open');
 });
-
 
     // Function to set timestamp value
     const setTimestamp = () => {
         const timestampInput = document.getElementById('timestamp');
-        const now = new Date();
-        timestampInput.value = now.toISOString(); // Set timestamp as ISO string
+        if (timestampInput) {
+            const now = new Date();
+            timestampInput.value = now.toISOString(); // Set timestamp as ISO string
+        }
     };
 
-    // Call all update functions when DOM content is loaded
-    updateCopyright();
-    updateLastModified();
-    updateGeolocation();
-    updateWeather();
-});
-
-    // Function to handle form submission
+    // Handle form submission
     const form = document.querySelector('.form'); // Assuming your form has a class "form"
     if (form) {
         form.addEventListener('submit', function(event) {
-            // Update timestamp just before form submission
+            // Set timestamp just before form submission
             setTimestamp();
-            
+
             // Other form validation and submission logic
             const emailInput = document.getElementById('email'); // Example: Replace with actual input field IDs
             const isValidEmail = validateEmailFormat(emailInput);
@@ -97,8 +91,10 @@ hamburgerElement.addEventListener('click', function(){
                 return;
             }
 
-            // Redirect to success page
-            window.location.href = 'thankyou.html?status=success'; // Uncomment to enable redirection
+            // Ensure timestamp is included in the URL
+            const formAction = new URL(form.action);
+            formAction.searchParams.set('timestamp', document.getElementById('timestamp').value);
+            form.action = formAction.toString();
         });
 
         // Optional: Update timestamp on form reset
@@ -132,6 +128,35 @@ hamburgerElement.addEventListener('click', function(){
 
     // Function to clear email field
     const clearEmail = () => {
-        emailInput.value = '';
-        emailInput.focus();
+        const emailInput = document.getElementById('email');
+        if (emailInput) {
+            emailInput.value = '';
+            emailInput.focus();
+        }
     };
+
+    // Handle thank you page display
+    const handleThankYouPage = () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const timestamp = urlParams.get('timestamp');
+        if (timestamp) {
+            const receivedTimestamp = new Date(timestamp).toLocaleString();
+            const receivedTimestampElement = document.getElementById('receivedTimestamp');
+            if (receivedTimestampElement) {
+                receivedTimestampElement.textContent = `Your submission was received at: ${receivedTimestamp}`;
+            }
+        }
+    };
+
+    // Call thank you page function if on thankyou.html
+    if (window.location.pathname.includes('thankyou.html')) {
+        handleThankYouPage();
+    }
+
+     // Call all update functions when DOM content is loaded
+     updateCopyright();
+     updateLastModified();
+     updateGeolocation();
+     updateWeather();
+
+});
