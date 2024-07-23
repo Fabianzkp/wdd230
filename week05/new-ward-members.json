@@ -1,0 +1,25 @@
+[
+    {
+      "familyName": "Ezikpe",
+      "moveInDate": "2022-07-15",
+      "numberOfPeople": 3,
+      "visitedByBishopric?": true,
+      "familyMembers": [
+        {
+          "name": "Ezikpe, Abiom Agwu",
+          "gender": "Male",
+          "birthdate": "1985-05-10"
+        },
+        {
+          "name": "Ezikpe, Anana Agwu",
+          "gender": "Female",
+          "birthdate": "1993-11-20"
+        },
+        {
+          "name": "Ezikpe, Ibe Agwu",
+          "gender": "Male",
+          "birthdate": "2001-02-05"
+        }
+      ]
+    }
+]
