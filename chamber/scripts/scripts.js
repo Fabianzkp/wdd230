@@ -3,23 +3,37 @@ document.addEventListener("DOMContentLoaded", function() {
     const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=4.975394198277854&lon=8.339750278691453&appid=${weatherApiKey}&units=metric`;
     const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=4.975394198277854&lon=8.339750278691453&appid=${weatherApiKey}&units=metric`;
 
-    const lastModified = document.lastModified;
-    document.getElementById("lastModified").textContent = `Last Modified: ${lastModified}`;
+    // Function to update copyright year
+    const updateCopyright = () => {
+        const currentYear = new Date().getFullYear();
+        document.getElementById("copyright").textContent = `${currentYear} Anana Agwu Ezikpe`;
+    };
 
-    const currentYear = new Date().getFullYear();
-    document.getElementById("copyright").textContent = `${currentYear} Anana Agwu Ezikpe`;
-    
-    // Example of updating country info
-    fetch('https://get.geojs.io/v1/ip/geo.json')
-        .then(response => response.json())
-        .then(data => {
-            const { country } = data;
-            document.getElementById("countryInfo").textContent = `Country you are browsing from: ${country}`;
-        })
-        .catch(error => {
-            console.error('Error fetching country info:', error);
-            document.getElementById("countryInfo").textContent = 'Country: Unavailable';
-        });
+    // Function to update last modified date
+    const updateLastModified = () => {
+        const lastModified = document.lastModified;
+        document.getElementById("lastModified").textContent = `Last Modified: ${lastModified}`;
+    };
+
+    // Function to fetch and update geolocation data
+    const updateGeolocation = () => {
+        const countryInfo = document.getElementById("countryInfo");
+
+        // Fetch geolocation data from GeoJS
+        fetch('https://get.geojs.io/v1/ip/geo.json')
+            .then(response => response.json())
+            .then(data => {
+                const { country, country_code } = data;
+                const countryFlagUrl = `https://www.countryflags.io/${country_code}/flat/64.png`;
+
+                // Update country info with country name and flag
+                countryInfo.innerHTML = `Country you are browsing from: ${country}`;
+            })
+            .catch(error => {
+                console.error('Error fetching geolocation data:', error);
+                countryInfo.textContent = 'Country: Unavailable';
+            });
+    };
 
 
   // Function to fetch and update weather info
@@ -213,10 +227,6 @@ document.addEventListener("DOMContentLoaded", function() {
             toggleView();
         })
         .catch(error => console.error("Error fetching member data:", error));
-
-    // Call all update functions when DOM content is loaded
-
-
  
     // Fetch member data from JSON file FOR CHAMBER SPOTLIGHT 
     fetch("data/members.json")
@@ -255,20 +265,6 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         })
         .catch(error => console.error("Error fetching member data:", error));
-
-    const banner = document.getElementById('meetAndGreetBanner');
-    const closeBannerBtn = document.getElementById('closeBannerBtn');
-    const currentDay = new Date().getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
-
-    // Show the banner only on Monday, Tuesday, and Wednesday
-    if (currentDay === 1 || currentDay === 2 || currentDay === 3) {
-        banner.style.display = 'block';
-    }
-
-    // Function to close the banner
-    closeBannerBtn.addEventListener('click', function() {
-        banner.style.display = 'none';
-    });
 
     updateCopyright();
     updateLastModified();

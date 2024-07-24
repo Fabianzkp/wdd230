@@ -196,3 +196,10 @@ document.addEventListener("DOMContentLoaded", function() {
     updateGeolocation();
     updateWeather();
 });
+
+
+const lastModified = document.lastModified;
+    document.getElementById("lastModified").textContent = `Last Modified: ${lastModified}`;
+
+    const currentYear = new Date().getFullYear();
+    document.getElementById("copyright").textContent = `${currentYear} Anana Agwu Ezikpe`;
