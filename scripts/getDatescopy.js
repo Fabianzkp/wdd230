@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const { country, country_code, latitude, longitude } = data;
                 const countryFlagUrl = `https://www.countryflags.io/${country_code}/flat/64.png`;
 
-                // Update country info with country name and flag
+                // Update country info with country name
                 countryInfo.innerHTML = `Country: ${country}`;
 
                 // Fetch and update weather info
