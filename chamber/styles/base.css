@@ -445,3 +445,94 @@ legend {
     cursor: pointer;
 }
 
+/* ...........final chamber page............ */
+
+.weather {
+    text-align: center;
+}
+
+.weather img {
+    max-width: 50px;
+    height: auto;
+}
+
+.forecast-day {
+    margin-top: 10px;
+}
+
+.forecast-day img {
+    max-width: 50px;
+    height: auto;
+}
+
+.spotlights {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.spotlights .spotlight {
+    display: block;
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: rgb(251, 245, 245, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.spotlights .spotlight img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.spotlights .spotlight h3 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.spotlights .spotlight p,
+.spotlights .spotlight a {
+    font-size: 1em;
+    margin: 5px 0;
+}
+
+
+.banner {
+    display: none; /* Initially hidden */
+    background-color: rgba(229, 215, 136, 0.9);
+    color: black; 
+    text-align: center;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.banner-content {
+    position: relative;
+}
+
+.banner h2 {
+    font-size: 2em;
+    margin: 0;
+}
+
+.banner p {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+.close-banner {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+

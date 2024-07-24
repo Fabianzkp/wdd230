@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
+    const weatherApiKey = '19986686d43ac7cac75b81de240e71b0';
+    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=4.975394198277854&lon=8.339750278691453&appid=${weatherApiKey}&units=metric`;
+
     // Function to update copyright year
     const updateCopyright = () => {
         const currentYear = new Date().getFullYear();
@@ -22,8 +25,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 const { country, country_code } = data;
                 const countryFlagUrl = `https://www.countryflags.io/${country_code}/flat/64.png`;
 
-                // Update country info with country name
-                countryInfo.textContent = `Country you are browsing from: ${country}`;
+                // Update country info with country name and flag
+                countryInfo.innerHTML = `Country you are browsing from: ${country}`;
             })
             .catch(error => {
                 console.error('Error fetching geolocation data:', error);
@@ -31,29 +34,23 @@ document.addEventListener("DOMContentLoaded", function() {
             });
     };
 
-    // Function to update weather information
+    // Function to fetch and update weather info
     const updateWeather = () => {
-        const weatherInfo = document.getElementById("weatherInfo");
-
-        // Replace with your desired city and OpenWeatherMap API key
-        const city = 'Lagos';
-        const apiKey = '19986686d43ac7cac75b81de240e71b0'; // OpenWeatherMap API key
-
-        // Fetch weather data from OpenWeatherMap API
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
+        fetch(weatherUrl)
+            .then(response => response.json())
             .then(data => {
-                const temperature = data.main.temp;
-                weatherInfo.textContent = `Temperature: ${temperature}°C`;
+                const temp = data.main.temp;
+                const description = data.weather[0].description;
+                const icon = data.weather[0].icon;
+                document.getElementById('weatherInfo').innerHTML = `
+                    Temperature: ${temp}°C<br>
+                    Condition: ${description}<br>
+                    <img src="https://openweathermap.org/img/wn/${icon}.png" alt="${description}">
+                `;
             })
             .catch(error => {
                 console.error('Error fetching weather data:', error);
-                weatherInfo.textContent = 'Weather data: Unavailable';
+                document.getElementById('weatherInfo').textContent = 'Weather: Unavailable';
             });
     };
 
@@ -61,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const hamburgerElement = document.querySelector('#myButton');
     const navElement = document.querySelector('.menulinks');
 
-    hamburgerElement.addEventListener('click', function(){
+    hamburgerElement.addEventListener('click', function() {
         navElement.classList.toggle('open');
         hamburgerElement.classList.toggle('open');
     });
@@ -155,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Function to fetch and display member data
     const displayMembers = (members) => {
-        const directory = document.getElementById("directory");
+        const directory = document.getElementById("memberDirectory");
         directory.innerHTML = ""; // Clear existing content
         members.forEach(member => {
             const memberCard = document.createElement("div");
@@ -175,17 +172,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Function to toggle between grid and list views
     const toggleView = () => {
-        const directory = document.getElementById("directory");
+        const directory = document.getElementById("memberDirectory");
         const toggleViewButton = document.getElementById("toggleView");
-        let gridView = true;
 
         toggleViewButton.addEventListener("click", () => {
-            gridView = !gridView;
-            if (gridView) {
-                directory.className = "grid-view";
-            } else {
-                directory.className = "list-view";
-            }
+            directory.classList.toggle("list-view");
+            directory.classList.toggle("grid-view");
         });
     };
 

@@ -1,58 +1,82 @@
 document.addEventListener("DOMContentLoaded", function() {
     const weatherApiKey = '19986686d43ac7cac75b81de240e71b0';
     const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=4.975394198277854&lon=8.339750278691453&appid=${weatherApiKey}&units=metric`;
+    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=4.975394198277854&lon=8.339750278691453&appid=${weatherApiKey}&units=metric`;
 
-    // Function to update copyright year
-    const updateCopyright = () => {
-        const currentYear = new Date().getFullYear();
-        document.getElementById("copyright").textContent = `${currentYear} Anana Agwu Ezikpe`;
-    };
+    const lastModified = document.lastModified;
+    document.getElementById("lastModified").textContent = `Last Modified: ${lastModified}`;
 
-    // Function to update last modified date
-    const updateLastModified = () => {
-        const lastModified = document.lastModified;
-        document.getElementById("lastModified").textContent = `Last Modified: ${lastModified}`;
-    };
+    const currentYear = new Date().getFullYear();
+    document.getElementById("copyright").textContent = `${currentYear} Anana Agwu Ezikpe`;
+    
+    // Example of updating country info
+    fetch('https://get.geojs.io/v1/ip/geo.json')
+        .then(response => response.json())
+        .then(data => {
+            const { country } = data;
+            document.getElementById("countryInfo").textContent = `Country you are browsing from: ${country}`;
+        })
+        .catch(error => {
+            console.error('Error fetching country info:', error);
+            document.getElementById("countryInfo").textContent = 'Country: Unavailable';
+        });
 
-    // Function to fetch and update geolocation data
-    const updateGeolocation = () => {
-        const countryInfo = document.getElementById("countryInfo");
 
-        // Fetch geolocation data from GeoJS
-        fetch('https://get.geojs.io/v1/ip/geo.json')
-            .then(response => response.json())
-            .then(data => {
-                const { country, country_code } = data;
-                const countryFlagUrl = `https://www.countryflags.io/${country_code}/flat/64.png`;
-
-                // Update country info with country name and flag
-                countryInfo.innerHTML = `Country you are browsing from: ${country}`;
-            })
-            .catch(error => {
-                console.error('Error fetching geolocation data:', error);
-                countryInfo.textContent = 'Country: Unavailable';
-            });
-    };
-
-    // Function to fetch and update weather info
+  // Function to fetch and update weather info
     const updateWeather = () => {
+        // Fetch current weather
         fetch(weatherUrl)
             .then(response => response.json())
             .then(data => {
                 const temp = data.main.temp;
                 const description = data.weather[0].description;
-                const icon = data.weather[0].icon;
-                document.getElementById('weatherInfo').innerHTML = `
-                    Temperature: ${temp}°C<br>
-                    Condition: ${description}<br>
+                const icon = data.weather[0].icon; // e.g., '01d'
+
+                // Update weather info
+                document.getElementById('current-temperature').textContent = `Temperature: ${Math.round(temp)}°C`;
+                document.getElementById('current-description').textContent = `Description: ${description}`;
+                document.getElementById('current-weather-icon').innerHTML = `
                     <img src="https://openweathermap.org/img/wn/${icon}.png" alt="${description}">
                 `;
             })
             .catch(error => {
                 console.error('Error fetching weather data:', error);
-                document.getElementById('weatherInfo').textContent = 'Weather: Unavailable';
+                document.getElementById('current-temperature').textContent = 'Temperature: Unavailable';
+                document.getElementById('current-description').textContent = 'Description: Unavailable';
+            });
+
+        // Fetch 3-day forecast
+        fetch(forecastUrl)
+            .then(response => response.json())
+            .then(data => {
+                // Filter the forecast list to get data points at 24-hour intervals, starting from the next day
+                const forecastList = data.list.slice(8, 8 + 3 * 8).filter((_, index) => index % 8 === 0); // Start from the 9th entry and pick every 8th entry
+                const forecastContainer = document.getElementById('forecast');
+                
+                forecastContainer.innerHTML = `<h3>Three-Day Forecast</h3>`; // Add a header for the forecast
+
+                forecastList.forEach((day, index) => {
+                    const date = new Date(day.dt * 1000).toLocaleDateString();
+                    const temp = Math.round(day.main.temp);
+                    const description = day.weather[0].description;
+                    const icon = day.weather[0].icon;
+
+                    forecastContainer.innerHTML += `
+                        <div class="forecast-day" id="day${index + 1}">
+                            <p>Date: ${date}</p>
+                            <p>Temp: ${temp}°C</p>
+                            <p>Description: ${description}</p>
+                            <img src="https://openweathermap.org/img/wn/${icon}.png" alt="${description}">
+                        </div>
+                    `;
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching forecast data:', error);
+                document.getElementById('forecast').innerHTML = 'Forecast: Unavailable';
             });
     };
+
 
     // Toggle navigation menu for mobile view
     const hamburgerElement = document.querySelector('#myButton');
@@ -191,6 +215,61 @@ document.addEventListener("DOMContentLoaded", function() {
         .catch(error => console.error("Error fetching member data:", error));
 
     // Call all update functions when DOM content is loaded
+
+
+ 
+    // Fetch member data from JSON file FOR CHAMBER SPOTLIGHT 
+    fetch("data/members.json")
+        .then(response => response.json())
+        .then(data => {
+            // Filter members with silver or gold membership levels
+            const qualifiedMembers = data.filter(member => 
+                member.membershipLevel.toLowerCase() === "silver" || 
+                member.membershipLevel.toLowerCase() === "gold"
+            );
+
+            // Function to get random members
+            const getRandomMembers = (members, count) => {
+                const shuffled = members.sort(() => 0.5 - Math.random());
+                return shuffled.slice(0, count);
+            };
+
+            // Get 2 to 3 random qualified members
+            const spotlightMembers = getRandomMembers(qualifiedMembers, Math.floor(Math.random() * 2) + 2);
+
+            // Display the selected members
+            const spotlightContainer = document.getElementById("spotlights");
+            spotlightMembers.forEach(member => {
+                const memberSpotlight = document.createElement("div");
+                memberSpotlight.className = "spotlight";
+                memberSpotlight.innerHTML = `
+                    <img src="images/${member.image}" alt="${member.name}">
+                    <h3>${member.name}</h3>
+                    <p>${member.address}</p>
+                    <p>${member.phone}</p>
+                    <a href="${member.website}" target="_blank">Visit Website</a>
+                    <p>${member.otherInfo}</p>
+                    <p>Membership Level: ${member.membershipLevel}</p>
+                `;
+                spotlightContainer.appendChild(memberSpotlight);
+            });
+        })
+        .catch(error => console.error("Error fetching member data:", error));
+
+    const banner = document.getElementById('meetAndGreetBanner');
+    const closeBannerBtn = document.getElementById('closeBannerBtn');
+    const currentDay = new Date().getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+
+    // Show the banner only on Monday, Tuesday, and Wednesday
+    if (currentDay === 1 || currentDay === 2 || currentDay === 3) {
+        banner.style.display = 'block';
+    }
+
+    // Function to close the banner
+    closeBannerBtn.addEventListener('click', function() {
+        banner.style.display = 'none';
+    });
+
     updateCopyright();
     updateLastModified();
     updateGeolocation();
