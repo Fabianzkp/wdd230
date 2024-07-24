@@ -26,11 +26,12 @@
             <span>Anana A. Ezikpe</span>
         </header>
 
+    <!-- I used this short cut "nav>ul>li*4>a" -->
         <div id="mark">
             <nav id="animateme">
                 <button id="myButton"></button>
                 <ul class="menulinks">
-                    <li class="active"><a href="index.html">Home</a></li>
+                    <li class ="active"><a href="index.html">Home</a></li>
                     <li><a href="chamber/index.html">Chamber</a></li>
                     <li><a href="week01/chamber-site-plan.html">Site Plan</a></li>
                     <li><a href="week04/form.html">Form</a></li>
@@ -40,17 +41,43 @@
         <main>
             <div class="message">
                 <picture class="hero">
-                    <source srcset="images/hero-small.webp" media="(max-width: 400px)">
-                    <source srcset="images/hero-large.webp" media="(max-width: 960px)"> 
-                    <img src="images/hero-large.webp" alt="Image of Aba Temple, Nigeria" loading="lazy" width="500" height="352">
+                <source srcset="images/hero-small.webp" media="(max-width: 400px)">
+                <source srcset="images/hero-large.webp" media="(max-width: 960px)"> 
+                <img src="images/hero-large.webp" alt="Image of Aba Temple, Nigeria" loading="lazy" width="500" height="352">
+                
                 </picture>
                 <div class="heromessage">Aba Temple, Nigeria</div>
             </div>
             <h1>WDD 230: Web Frontend Development</h1>
-            <div id="container">
+            <div id = "container">
                 <section class="card">
                     <h2>Learning Activities</h2>
-                    <ul id="learningActivities">Loading...</ul>
+                    <ul>
+                        <li><a href="index.html">Week 01: Layout | Media Query | JS Pen </a></li> 
+                        <li>
+                            <a href="week02/design.html">Week 02: Web Design Principles | </a>
+                            <a href="https://codepen.io/Fabianzkp/pen/abrPYEO">Responsive Menu using 'Hamburger' | </a>
+                            <a href="week02/bom.html">JavaScript: DOM 'Manipulation'</a>
+                        </li> 
+                        <li>
+                            <a href="week03/images/landscape.webp">Week 03: WebP | </a>
+                            <a href="week03/lazyload.html">Lazyload | </a>
+                            <a href="week03/responsive-images.html">Responsive Images | </a>
+                            <a href="week03/bom.html">Web Storage API - localStorage</a>
+                        </li>
+                        <li>
+                            <a href="https://codepen.io/Fabianzkp/pen/qBzWWrd">Week 04: CSS Pseudo-classes | </a>
+                            <a href="week04/images/week04-exercise.webp">CSS Combinator | </a>
+                            <a href="week04/tablebuild.html">HTML Tables for Data Presentation | </a>
+                            <a href="week04/Form-start/index.html">Styling a Web Form</a>
+                        </li>
+                        <li>
+                            <a href="https://codepen.io/Fabianzkp/pen/abgZPJX">Week 05: CSS Pseudo-Element | </a>
+                            <a href="week05/new-ward-members.json">JSON | </a>
+                            <a href="week05/prophets.html">The Fetch API | </a>
+                            <a href="week05/weather.html">Consuming a Weather API</a>
+                        </li>
+                    </ul>
                 </section>
 
                 <section class="card" id="informationCard">
@@ -67,13 +94,15 @@
                 </section>
             </div>
         </main>
-        <footer>
-            <p id="copyright">Placeholder for copyright information</p>
-            <p id="lastModified">Placeholder for last modified information</p>
-            <p id="countryInfo">Fetching country info...</p>
+            <footer>
+        <!-- First paragraph with copyright and author details -->
+        <p id= "copyright">Placeholder for copyright information</p>
+
+        <!-- Second paragraph with last modified information -->
+        <p id="lastModified">Placeholder for last modified information</p>
+        <p id="countryInfo">Fetching country info...</p>
         </footer>
         <script src="scripts/getDates.js"></script>
-        <script src="scripts/links.js"></script>
     </div>
 </body>
 </html>

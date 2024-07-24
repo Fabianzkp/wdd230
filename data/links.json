@@ -1,0 +1,45 @@
+{
+    "weeks": [
+        {
+            "week": "Week 01",
+            "links": [
+                { "title": "Layout | Media Query | JS Pen", "url": "index.html" }
+            ]
+        },
+        {
+            "week": "Week 02",
+            "links": [
+                { "title": "Web Design Principles", "url": "week02/design.html" },
+                { "title": "Responsive Menu using 'Hamburger'", "url": "https://codepen.io/Fabianzkp/pen/abrPYEO" },
+                { "title": "JavaScript: DOM 'Manipulation'", "url": "week02/bom.html" }
+            ]
+        },
+        {
+            "week": "Week 03",
+            "links": [
+                { "title": "WebP", "url": "week03/images/landscape.webp" },
+                { "title": "Lazyload", "url": "week03/lazyload.html" },
+                { "title": "Responsive Images", "url": "week03/responsive-images.html" },
+                { "title": "Web Storage API - localStorage", "url": "week03/bom.html" }
+            ]
+        },
+        {
+            "week": "Week 04",
+            "links": [
+                { "title": "CSS Pseudo-classes", "url": "https://codepen.io/Fabianzkp/pen/qBzWWrd" },
+                { "title": "CSS Combinator", "url": "week04/images/week04-exercise.webp" },
+                { "title": "HTML Tables for Data Presentation", "url": "week04/tablebuild.html" },
+                { "title": "Styling a Web Form", "url": "week04/Form-start/index.html" }
+            ]
+        },
+        {
+            "week": "Week 05",
+            "links": [
+                { "title": "CSS Pseudo-Element", "url": "https://codepen.io/Fabianzkp/pen/abgZPJX" },
+                { "title": "JSON", "url": "week05/new-ward-members.json" },
+                { "title": "The Fetch API", "url": "week05/prophets.html" },
+                { "title": "Consuming a Weather API", "url": "week05/weather.html" }
+            ]
+        }
+    ]
+}
