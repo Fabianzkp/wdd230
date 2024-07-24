@@ -467,7 +467,7 @@ legend {
 
 .spotlights {
     text-align: center;
-    margin: 20px 0;
+    margin: 20px 1rem;
 }
 
 .spotlights .spotlight {
@@ -505,7 +505,7 @@ legend {
     color: black; 
     text-align: center;
     padding: 20px;
-    margin: 20px 0;
+    margin: 20px 1rem;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: relative;
@@ -532,7 +532,10 @@ legend {
     font-size: 1.5em;
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 7.5px;
     cursor: pointer;
 }
 
+footer {
+    margin: 20px 1rem;
+}
