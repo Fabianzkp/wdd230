@@ -2,9 +2,16 @@ const baseURL = "https://fabianzkp.github.io/wdd230/";
 const linksURL = "https://fabianzkp.github.io/wdd230/data/links.json";
 
 async function getLinks() {
-    const response = await fetch(linksURL);
-    const data = await response.json();
-    displayLinks(data.weeks);
+    try {
+        const response = await fetch(linksURL);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        displayLinks(data.weeks);
+    } catch (error) {
+        console.error('Error fetching links:', error);
+    }
 }
 
 function displayLinks(weeks) {
@@ -13,21 +20,25 @@ function displayLinks(weeks) {
 
     weeks.forEach(week => {
         const weekItem = document.createElement('li');
-        const weekTitle = document.createElement('h3');
-        weekTitle.textContent = week.week;
+        
+        const weekTitle = document.createElement('span');
+        weekTitle.textContent = `${week.week}: `;
         weekItem.appendChild(weekTitle);
 
-        const linksList = document.createElement('ul');
-        week.links.forEach(link => {
-            const linkItem = document.createElement('li');
+        week.links.forEach((link, index) => {
             const linkAnchor = document.createElement('a');
             linkAnchor.href = `${baseURL}${link.url}`;
             linkAnchor.textContent = link.title;
-            linkItem.appendChild(linkAnchor);
-            linksList.appendChild(linkItem);
+
+            weekItem.appendChild(linkAnchor);
+
+            // Add separator only if it's not the last link
+            if (index < week.links.length - 1) {
+                const separator = document.createTextNode(' | ');
+                weekItem.appendChild(separator);
+            }
         });
 
-        weekItem.appendChild(linksList);
         container.appendChild(weekItem);
     });
 }
