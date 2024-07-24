@@ -1,0 +1,66 @@
+[
+    {
+      "name": "AgriPro Farms",
+      "address": "123 Maize Street, Cross River, CR 12345",
+      "phone": "555-123-4567",
+      "website": "http://www.agriprofarm.com",
+      "image": "agriprofarm.webp",
+      "membershipLevel": "Gold",
+      "otherInfo": "Specializes in organic maize cultivation."
+    },
+    {
+      "name": "Cross River Grain Processors",
+      "address": "456 Grain Lane, Cross River, CR 67890",
+      "phone": "555-234-5678",
+      "website": "http://www.crgrainprocessors.com",
+      "image": "crgrainprocessors.webp",
+      "membershipLevel": "Silver",
+      "otherInfo": "Leading maize processing company."
+    },
+    {
+      "name": "Maize Innovation Institute",
+      "address": "789 Innovation Drive, Cross River, CR 10112",
+      "phone": "555-345-6789",
+      "website": "http://www.maizeinnovation.com",
+      "image": "maizeinnovation.webp",
+      "membershipLevel": "Platinum",
+      "otherInfo": "Conducts research in maize genetics."
+    },
+    {
+      "name": "Green Valley Maize",
+      "address": "101 Green Valley Road, Cross River, CR 20234",
+      "phone": "555-456-7890",
+      "website": "http://www.greenvalleymaize.com",
+      "image": "greenvalleymaize.webp",
+      "membershipLevel": "Gold",
+      "otherInfo": "Supplies high-quality maize seeds."
+    },
+    {
+      "name": "Riverbank Harvest",
+      "address": "202 Riverbank Avenue, Cross River, CR 30345",
+      "phone": "555-567-8901",
+      "website": "http://www.riverbankharvest.com",
+      "image": "riverbankharvest.webp",
+      "membershipLevel": "Silver",
+      "otherInfo": "Produces sustainable maize products."
+    },
+    {
+      "name": "MaizeCo Ltd.",
+      "address": "303 Cornfield Street, Cross River, CR 40456",
+      "phone": "555-678-9012",
+      "website": "http://www.maizeco.com",
+      "image": "maizeco.webp",
+      "membershipLevel": "Bronze",
+      "otherInfo": "Offers a wide range of maize-based food products."
+    },
+    {
+      "name": "Harvest Horizons",
+      "address": "404 Farm Road, Cross River, CR 50567",
+      "phone": "555-789-0123",
+      "website": "http://www.harvesthorizons.com",
+      "image": "harvesthorizons.webp",
+      "membershipLevel": "Gold",
+      "otherInfo": "Focuses on innovative maize farming techniques."
+    }
+  ]
+  
